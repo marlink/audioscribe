@@ -1,0 +1,5 @@
+{
+  "name": "AudioScribe AI",
+  "description": "Upload audio files (MP3, M4A, WAV) and get instant, accurate transcriptions.",
+  "requestFramePermissions": []
+}

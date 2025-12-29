@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AudioScribe AI</title>
+  <!-- Use Tailwind Play CDN for runtime configuration and full feature support (including dark: variants) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: 'var(--brand-primary)',
+              hover: 'var(--brand-primary-hover)',
+              glow: 'var(--brand-glow)',
+            },
+            // Map background colors to CSS variables
+            bg: {
+              primary: 'var(--bg-primary)',
+              secondary: 'var(--bg-secondary)',
+              accent: 'var(--bg-accent)',
+            },
+            // Map text colors to CSS variables
+            text: {
+              primary: 'var(--text-primary)',
+              secondary: 'var(--text-secondary)',
+              muted: 'var(--text-muted)',
+            },
+            border: 'var(--border-color)',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          screens: {
+            '3xl': '2000px',
+            'ultra': '3400px',
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3"
+  }
+}
+</script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+
+<body class="bg-bg-secondary text-text-primary antialiased h-screen overflow-hidden transition-colors duration-300">
+  <div id="root" class="h-full"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
+</html>

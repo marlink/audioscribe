@@ -1,0 +1,8 @@
+
+node_modules
+dist
+.env*
+backup
+Dockerfile
+clean_and_verify.sh
+report.md

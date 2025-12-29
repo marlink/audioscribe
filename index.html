@@ -46,6 +46,10 @@
           fontFamily: {
             sans: ['Inter', 'sans-serif'],
           },
+          backgroundImage: {
+            'page-gradient': 'var(--bg-page-gradient)',
+            'surface-gradient': 'var(--bg-surface-gradient)',
+          },
           screens: {
             '3xl': '2000px',
             'ultra': '3400px',
@@ -68,7 +72,7 @@
   <link rel="stylesheet" href="/index.css">
 </head>
 
-<body class="bg-bg-secondary text-text-primary antialiased h-screen overflow-hidden transition-colors duration-300">
+<body class="bg-page-gradient text-text-primary antialiased h-screen overflow-hidden transition-colors duration-300">
   <div id="root" class="h-full"></div>
   <script type="module" src="/index.tsx"></script>
 </body>

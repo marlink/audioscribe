@@ -98,7 +98,7 @@ const App: React.FC = () => {
   const isBusy = status === TranscriptionStatus.UPLOADING || status === TranscriptionStatus.PROCESSING;
 
   return (
-    <div className="flex flex-col h-screen font-sans text-text-primary bg-bg-page transition-colors duration-500">
+    <div className="flex flex-col h-screen font-sans text-text-primary bg-page-gradient transition-colors duration-500">
       <Header />
 
       <main className="flex-1 w-full max-w-full mx-auto px-4 sm:px-10 py-6 flex flex-col lg:flex-row gap-8 overflow-hidden">

@@ -60,8 +60,8 @@ audioscribe-ai/
 │   ├── Footer.tsx
 │   ├── Header.tsx
 │   ├── ProgressIndicator.tsx
-│   ├── TranscriptList.tsx
-│   └── TranscriptionDisplay.tsx
+│   └── TranscriptList.tsx
+
 ├── services/           # API and business logic
 │   └── transcriptionService.ts
 ├── utils/             # Utility functions

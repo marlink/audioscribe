@@ -4,6 +4,9 @@
   --bg-surface: #ffffff;
   --bg-elevated: #ffffff;
   
+  --bg-page-gradient: linear-gradient(to bottom, #ffffff 0%, #fafafa 100%);
+  --bg-surface-gradient: linear-gradient(to bottom, #ffffff 0%, #f9fafb 100%);
+  
   --text-primary: #171717;
   --text-secondary: #525252;
   --text-muted: #a3a3a3;
@@ -37,6 +40,9 @@
   --bg-surface: #121214;
   --bg-elevated: #1c1c1f;
   
+  --bg-page-gradient: radial-gradient(circle at 50% 0%, #17171a 0%, #09090b 80%);
+  --bg-surface-gradient: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 100%);
+  
   --text-primary: #ededef;
   --text-secondary: #a1a1aa;
   --text-muted: #52525b;
@@ -63,7 +69,8 @@
 /* Base Styles */
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background-color: var(--bg-page);
+  background: var(--bg-page-gradient);
+  background-attachment: fixed;
   color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -84,7 +91,7 @@ body {
 
 /* Premium Card Style - Updated for subtle hierarchy */
 .premium-card {
-  background-color: var(--bg-surface);
+  background: var(--bg-surface-gradient), var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   box-shadow: var(--card-shadow);

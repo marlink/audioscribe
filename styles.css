@@ -157,3 +157,22 @@ body {
 .active-pulse:active {
   transform: scale(0.98);
 }
+
+/* Utility Classes for Design System */
+.bg-bg-page { background-color: var(--bg-page); }
+.bg-bg-surface { background-color: var(--bg-surface); }
+.bg-bg-elevated { background-color: var(--bg-elevated); }
+.bg-bg-accent { background-color: var(--accent-subtle); }
+.bg-status-error-bg { background-color: var(--status-error-bg); }
+.bg-brand-primary { background-color: var(--accent-primary); }
+.bg-brand-subtle { background-color: var(--accent-subtle); }
+
+.text-text-primary { color: var(--text-primary); }
+.text-text-secondary { color: var(--text-secondary); }
+.text-text-muted { color: var(--text-muted); }
+.text-brand-primary { color: var(--accent-primary); }
+.text-status-error { color: var(--status-error); }
+
+.border-border-subtle { border-color: var(--border-subtle); }
+.border-border-default { border-color: var(--border-default); }
+.border-border { border-color: var(--border-default); }

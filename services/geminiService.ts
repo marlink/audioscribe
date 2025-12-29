@@ -50,6 +50,10 @@ export const transcribeAudio = async (
     clearInterval(progressInterval);
 
     if (!response.ok) {
+      const contentType = response.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        throw new Error(`API Connection Failed (${response.status} ${response.statusText})`);
+      }
       const errorData = await response.json();
       throw new Error(errorData.error || `Server responded with ${response.status}`);
     }

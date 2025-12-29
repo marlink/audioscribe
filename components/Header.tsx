@@ -3,7 +3,7 @@ import ThemeToggle from './ThemeToggle';
 
 const Header: React.FC = memo(() => {
   return (
-    <header className="glass-panel border-b border-border sticky top-0 z-50">
+    <header className="glass-panel border-b border-border-subtle sticky top-0 z-50">
       <div className="max-w-full mx-auto px-4 sm:px-10">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center gap-2">

@@ -1,20 +1,30 @@
 :root {
   /* Design System Tokens */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8fafc;
-  --bg-accent: #f1f5f9;
+  --bg-page: #fafafa;
+  --bg-surface: #ffffff;
+  --bg-elevated: #ffffff;
   
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #94a3b8;
+  --text-primary: #171717;
+  --text-secondary: #525252;
+  --text-muted: #a3a3a3;
+  --text-on-accent: #ffffff;
   
-  --brand-primary: #2563eb;
-  --brand-primary-hover: #1d4ed8;
-  --brand-glow: rgba(37, 99, 235, 0.15);
+  --border-subtle: rgba(0, 0, 0, 0.05);
+  --border-default: rgba(0, 0, 0, 0.08);
+  --border-prominent: rgba(0, 0, 0, 0.12);
   
-  --border-color: #e2e8f0;
-  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --card-hover-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --accent-primary: #2563eb;
+  --accent-secondary: #3b82f6;
+  --accent-subtle: #eff6ff;
+  --accent-glow: rgba(37, 99, 235, 0.15);
+  
+  --status-error: #dc2626;
+  --status-error-bg: #fef2f2;
+  --status-success: #059669;
+  --status-success-bg: #ecfdf5;
+  
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --card-hover-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
   
   --radius-lg: 1rem;
   --radius-md: 0.75rem;
@@ -23,63 +33,81 @@
 
 /* Dark Mode Tokens */
 .dark {
-  --bg-primary: #111111;
-  --bg-secondary: #18181B;
-  --bg-accent: #27272A;
+  --bg-page: #09090b;
+  --bg-surface: #121214;
+  --bg-elevated: #1c1c1f;
   
-  --text-primary: #F4F4F5;
-  --text-secondary: #A1A1AA;
-  --text-muted: #71717A;
+  --text-primary: #ededef;
+  --text-secondary: #a1a1aa;
+  --text-muted: #52525b;
+  --text-on-accent: #ffffff;
   
-  --border-color: #27272A;
-  --brand-glow: rgba(59, 130, 246, 0.2);
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-default: rgba(255, 255, 255, 0.08);
+  --border-prominent: rgba(255, 255, 255, 0.12);
+  
+  --accent-primary: #3b82f6;
+  --accent-secondary: #60a5fa;
+  --accent-subtle: rgba(59, 130, 246, 0.1);
+  --accent-glow: rgba(59, 130, 246, 0.25);
+  
+  --status-error: #f87171;
+  --status-error-bg: rgba(127, 29, 29, 0.2);
+  --status-success: #34d399;
+  --status-success-bg: rgba(6, 78, 59, 0.2);
+  
+  --card-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05), 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+  --card-hover-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 20px 25px -5px rgba(0, 0, 0, 0.3);
 }
 
 /* Base Styles */
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-page);
   color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Glassmorphism helpers */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .dark .glass-panel {
-  background: rgba(17, 17, 17, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(9, 9, 11, 0.7);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
-/* Premium Card Style */
+/* Premium Card Style - Updated for subtle hierarchy */
 .premium-card {
-  background-color: var(--bg-primary);
-  border: 1px solid var(--border-color);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   box-shadow: var(--card-shadow);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .premium-card:hover {
   box-shadow: var(--card-hover-shadow);
+  border-color: var(--border-default);
   transform: translateY(-2px);
 }
+
+
 
 /* Custom scrollbar */
 .scrollbar-thin::-webkit-scrollbar {
   width: 6px;
 }
 .scrollbar-thin::-webkit-scrollbar-track {
-  background: var(--bg-secondary);
+  background: var(--bg-elevated);
 }
 .scrollbar-thin::-webkit-scrollbar-thumb {
-  background: var(--border-color);
+  background: var(--border-default);
   border-radius: 10px;
 }
 .scrollbar-thin::-webkit-scrollbar-thumb:hover {

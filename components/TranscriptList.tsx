@@ -46,8 +46,8 @@ const TranscriptItem = memo(({
       className={`
         group relative flex items-start rounded-md transition-colors duration-200 border
         ${isActive
-          ? 'bg-blue-50 border-blue-200 shadow-sm ring-1 ring-blue-100 z-10'
-          : 'bg-transparent border-transparent hover:bg-white hover:border-gray-200'
+          ? 'bg-brand-subtle/10 border-brand-subtle shadow-sm ring-1 ring-brand-glow z-10'
+          : 'bg-transparent border-transparent hover:bg-bg-elevated hover:border-border-default'
         }
       `}
     >
@@ -55,14 +55,14 @@ const TranscriptItem = memo(({
       <button
         type="button"
         onClick={() => onSeek(segment.startSeconds)}
-        className="flex-1 text-left flex items-start gap-4 p-4 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1 focus:ring-offset-transparent"
+        className="flex-1 text-left flex items-start gap-4 p-4 rounded-l-md focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-1 focus:ring-offset-transparent"
         aria-label={`Seek to ${segment.timestamp}. ${segment.speaker ? segment.speaker + ': ' : ''}${segment.text}`}
         aria-current={isActive ? 'true' : undefined}
       >
         <div className="flex-shrink-0 w-16 pt-1">
           <span className={`
             text-xs font-mono font-medium px-1.5 py-0.5 rounded
-            ${isActive ? 'text-blue-700 bg-blue-100' : 'text-gray-400 bg-gray-100 group-hover:text-gray-600'}
+            ${isActive ? 'text-brand-primary bg-brand-subtle' : 'text-text-muted bg-bg-elevated group-hover:text-text-secondary'}
           `}>
             {segment.timestamp}
           </span>
@@ -70,11 +70,11 @@ const TranscriptItem = memo(({
 
         <div className="flex-1 min-w-0">
           {segment.speaker && (
-            <div className={`text-xs font-bold uppercase tracking-wider mb-1 ${isActive ? 'text-blue-600' : 'text-gray-400'}`}>
+            <div className={`text-xs font-bold uppercase tracking-wider mb-1 ${isActive ? 'text-brand-primary' : 'text-text-muted'}`}>
               {segment.speaker}
             </div>
           )}
-          <p className={`text-base leading-relaxed whitespace-pre-wrap ${isActive ? 'text-gray-800 font-medium' : 'text-gray-600'}`}>
+          <p className={`text-base leading-relaxed whitespace-pre-wrap ${isActive ? 'text-text-primary font-medium' : 'text-text-secondary'}`}>
             {segment.text}
           </p>
         </div>
@@ -87,10 +87,10 @@ const TranscriptItem = memo(({
           onClick={handleCopy}
           className={`
                 p-2 rounded-md transition-all duration-200
-                focus:outline-none focus:ring-2 focus:ring-blue-500
+                focus:outline-none focus:ring-2 focus:ring-brand-primary
                 ${copied
-              ? 'text-green-600 bg-green-50'
-              : 'text-gray-300 hover:text-blue-600 hover:bg-blue-50 opacity-0 group-hover:opacity-100 focus:opacity-100'
+              ? 'text-status-success bg-status-success-bg'
+              : 'text-text-muted hover:text-brand-primary hover:bg-brand-subtle opacity-0 group-hover:opacity-100 focus:opacity-100'
             }
             `}
           aria-label="Copy segment text"
@@ -146,12 +146,12 @@ const TranscriptList: React.FC<TranscriptListProps> = ({ segments, currentTime, 
       role="region"
       aria-label={`Transcription for ${fileName}`}
     >
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between px-6 py-4 border-b border-gray-100 bg-white sticky top-0 z-20 gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between px-6 py-4 border-b border-border-subtle bg-bg-surface sticky top-0 z-20 gap-4">
         <div>
           <div className="flex items-center gap-3">
-            <h2 className="text-xl font-bold text-gray-800 tracking-tight">Transcription</h2>
+            <h2 className="text-xl font-bold text-text-primary tracking-tight">Transcription</h2>
             {language && (
-              <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-100">
+              <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-brand-subtle text-brand-primary border border-brand-subtle/50">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 mr-1" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M4.083 9h1.946c.089-1.546.383-2.97.837-4.083A8.002 8.002 0 004.083 9zM6.5 9a6.479 6.479 0 00-4.213 3.84c.411.66.891 1.258 1.42 1.792.487-.338.966-.718 1.428-1.135C5.454 12.59 5.8 11.393 6 10.043V9H6.5zm0-1c-.2-.733-.36-1.503-.475-2.296A16.463 16.463 0 016.96 4.16 8.026 8.026 0 004.99 6.204 14.542 14.542 0 006.5 8zM10 2a8 8 0 100 16 8 8 0 000-16zm1 14.917V10h-2v6.917A8.004 8.004 0 013.083 11h1.946c.089 1.546.383 2.97.837 4.083A8.002 8.002 0 0111 16.917zm2.917-1.006c-.487.338-.966.718-1.428 1.135-.316-.906-.662-2.103-.862-3.453h.525c.2.733.36 1.503.475 2.296.864-.17 1.68-.483 2.418-.909-.411-.66-.891-1.258-1.42-1.792zM12.917 4.083A8.002 8.002 0 0116.917 9h-1.946c-.089-1.546-.383-2.97-.837-4.083zM14.5 11h-.5c.2.733.36 1.503.475 2.296a16.463 16.463 0 00-1.96 1.544 8.026 8.026 0 001.97-2.044c.411-.66.891-1.258 1.42-1.792-.487.338-.966.718-1.428 1.135-.316.906-.662 2.103-.862 3.453h.525zM12 9V3.083c.732.128 1.398.508 1.874 1.077-.462.417-.941.797-1.428 1.135.316.906.662 2.103.862 3.453h-1.308z" clipRule="evenodd" />
                 </svg>
@@ -159,35 +159,35 @@ const TranscriptList: React.FC<TranscriptListProps> = ({ segments, currentTime, 
               </span>
             )}
           </div>
-          <p className="text-xs text-gray-500 mt-1 truncate" style={{ maxWidth: '200px' }}>{fileName}</p>
+          <p className="text-xs text-text-muted mt-1 truncate" style={{ maxWidth: '200px' }}>{fileName}</p>
         </div>
 
         <div className="flex items-center gap-4 self-end sm:self-auto">
-          <label className="flex items-center gap-2 text-sm text-gray-600 cursor-pointer select-none hover:text-blue-600 transition-colors">
+          <label className="flex items-center gap-2 text-sm text-text-secondary cursor-pointer select-none hover:text-brand-primary transition-colors">
             <input
               type="checkbox"
               checked={includeTimestamps}
               onChange={(e) => setIncludeTimestamps(e.target.checked)}
-              className="rounded border-gray-300 text-blue-600 focus:ring-blue-500 h-4 w-4 accent-blue-600"
+              className="rounded border-border-default text-brand-primary focus:ring-brand-primary h-4 w-4 accent-brand-primary"
             />
             <span>Timestamps</span>
           </label>
 
           <button
             onClick={handleCopyAll}
-            className="group flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-gray-600 bg-gray-50 hover:bg-gray-100 hover:text-blue-600 rounded-lg transition-all border border-gray-200 hover:border-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="group flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-text-secondary bg-bg-page hover:bg-bg-elevated hover:text-brand-primary rounded-lg transition-all border border-border-default hover:border-brand-subtle focus:outline-none focus:ring-2 focus:ring-brand-primary"
             aria-label="Copy entire transcription"
           >
             {allCopied ? (
               <>
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-green-500" viewBox="0 0 20 20" fill="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-status-success" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
-                <span className="text-green-600">Copied</span>
+                <span className="text-status-success">Copied</span>
               </>
             ) : (
               <>
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 group-hover:text-blue-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 group-hover:text-brand-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                 </svg>
                 Copy All
@@ -198,7 +198,7 @@ const TranscriptList: React.FC<TranscriptListProps> = ({ segments, currentTime, 
       </div>
 
       <div
-        className="flex-1 overflow-y-auto scrollbar-thin bg-gray-50-30 p-2"
+        className="flex-1 overflow-y-auto scrollbar-thin bg-bg-surface/50 p-2"
         role="feed"
         aria-busy="false"
       >

@@ -98,16 +98,16 @@ const App: React.FC = () => {
   const isBusy = status === TranscriptionStatus.UPLOADING || status === TranscriptionStatus.PROCESSING;
 
   return (
-    <div className="flex flex-col h-screen font-sans text-text-primary bg-bg-secondary transition-colors duration-300">
+    <div className="flex flex-col h-screen font-sans text-text-primary bg-bg-page transition-colors duration-500">
       <Header />
 
       <main className="flex-1 w-full max-w-full mx-auto px-4 sm:px-10 py-6 flex flex-col lg:flex-row gap-8 overflow-hidden">
 
         {/* Left Panel: Input & Controls */}
         <div className={`flex flex-col gap-6 w-full lg:w-1/3 transition-all duration-300 ${result ? '' : 'lg:w-1/2 lg:mx-auto'}`}>
-          <div className="premium-card p-8 flex flex-col gap-6 bg-bg-primary border-border">
+          <div className="premium-card p-8 flex flex-col gap-6 bg-bg-surface border-border-subtle">
             <h2 className="text-lg font-bold flex items-center gap-2 text-text-primary">
-              <span className="w-1.5 h-6 bg-blue-500 rounded-full"></span>
+              <span className="w-1.5 h-6 bg-brand-primary rounded-full shadow-[0_0_10px_var(--accent-glow)]"></span>
               Audio Source
             </h2>
 
@@ -123,7 +123,7 @@ const App: React.FC = () => {
                   <button
                     onClick={handleReset}
                     disabled={isBusy}
-                    className="flex items-center gap-1 text-xs font-medium text-text-secondary hover:text-red-600 px-2 py-1 rounded hover:bg-red-50 transition-colors"
+                    className="flex items-center gap-1 text-xs font-medium text-text-secondary hover:text-status-error px-2 py-1 rounded hover:bg-status-error-bg transition-colors"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
                     Start Over
@@ -139,7 +139,7 @@ const App: React.FC = () => {
                 {!isBusy && !result && (
                   <button
                     onClick={handleTranscribe}
-                    className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold shadow-lg shadow-blue-200 transition-all active-scale-95 transform"
+                    className="w-full py-4 bg-brand-primary hover:bg-brand-secondary text-white rounded-lg font-bold shadow-lg shadow-brand-glow transition-all active-scale-95 transform"
                   >
                     Start Transcription
                   </button>
@@ -156,7 +156,7 @@ const App: React.FC = () => {
             )}
 
             {error && (
-              <div className="p-4 bg-red-50 border border-red-100 rounded-lg text-sm text-red-700">
+              <div className="p-4 bg-status-error-bg border border-status-error/30 rounded-lg text-sm text-status-error">
                 <p className="font-bold">{error.title}</p>
                 <p>{error.message}</p>
               </div>
@@ -177,7 +177,7 @@ const App: React.FC = () => {
           </div>
         ) : (
           !currentFile && (
-            <div className="hidden lg:flex flex-1 items-center justify-center bg-bg-accent bg-opacity-30 rounded-lg border-2 border-dashed border-border/50">
+            <div className="hidden lg:flex flex-1 items-center justify-center bg-bg-surface/30 rounded-lg border border-dashed border-border-subtle">
               <p className="text-text-muted font-medium">Upload audio to begin</p>
             </div>
           )

@@ -13,24 +13,35 @@
       theme: {
         extend: {
           colors: {
+            // Semantic Tokens
             brand: {
-              primary: 'var(--brand-primary)',
-              hover: 'var(--brand-primary-hover)',
-              glow: 'var(--brand-glow)',
+              primary: 'var(--accent-primary)',
+              secondary: 'var(--accent-secondary)',
+              subtle: 'var(--accent-subtle)',
+              glow: 'var(--accent-glow)',
             },
-            // Map background colors to CSS variables
             bg: {
-              primary: 'var(--bg-primary)',
-              secondary: 'var(--bg-secondary)',
-              accent: 'var(--bg-accent)',
+              page: 'var(--bg-page)',
+              surface: 'var(--bg-surface)',
+              elevated: 'var(--bg-elevated)',
             },
-            // Map text colors to CSS variables
             text: {
               primary: 'var(--text-primary)',
               secondary: 'var(--text-secondary)',
               muted: 'var(--text-muted)',
+              onAccent: 'var(--text-on-accent)',
             },
-            border: 'var(--border-color)',
+            border: {
+              subtle: 'var(--border-subtle)',
+              default: 'var(--border-default)',
+              prominent: 'var(--border-prominent)',
+            },
+            status: {
+              error: 'var(--status-error)',
+              'error-bg': 'var(--status-error-bg)',
+              success: 'var(--status-success)',
+              'success-bg': 'var(--status-success-bg)',
+            },
           },
           fontFamily: {
             sans: ['Inter', 'sans-serif'],

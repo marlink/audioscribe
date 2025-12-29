@@ -102,7 +102,7 @@ app.post('/api/transcribe', async (req, res) => {
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // SPA Fallback: For any other route, serve index.html
-app.get('*', (req, res) => {
+app.get(/(.*)/, (req, res) => {
     res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 

@@ -98,15 +98,15 @@ const App: React.FC = () => {
   const isBusy = status === TranscriptionStatus.UPLOADING || status === TranscriptionStatus.PROCESSING;
 
   return (
-    <div className="flex flex-col h-screen font-sans text-gray-900">
+    <div className="flex flex-col h-screen font-sans text-text-primary bg-bg-secondary transition-colors duration-300">
       <Header />
 
       <main className="flex-1 w-full max-w-full mx-auto px-4 sm:px-10 py-6 flex flex-col lg:flex-row gap-8 overflow-hidden">
 
         {/* Left Panel: Input & Controls */}
         <div className={`flex flex-col gap-6 w-full lg:w-1/3 transition-all duration-300 ${result ? '' : 'lg:w-1/2 lg:mx-auto'}`}>
-          <div className="premium-card p-8 flex flex-col gap-6">
-            <h2 className="text-lg font-bold flex items-center gap-2">
+          <div className="premium-card p-8 flex flex-col gap-6 bg-bg-primary border-border">
+            <h2 className="text-lg font-bold flex items-center gap-2 text-text-primary">
               <span className="w-1.5 h-6 bg-blue-500 rounded-full"></span>
               Audio Source
             </h2>
@@ -115,15 +115,15 @@ const App: React.FC = () => {
               <FileUploader onFileSelect={handleFileSelect} disabled={isBusy} />
             ) : (
               <div className="animate-fade-in flex flex-col gap-6">
-                <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-200">
+                <div className="flex items-center justify-between p-4 bg-bg-accent rounded-lg border border-border">
                   <div className="min-w-0">
-                    <p className="font-semibold truncate">{currentFile.file.name}</p>
-                    <p className="text-xs text-gray-500">{formatFileSize(currentFile.file.size)}</p>
+                    <p className="font-semibold truncate text-text-primary">{currentFile.file.name}</p>
+                    <p className="text-xs text-text-muted">{formatFileSize(currentFile.file.size)}</p>
                   </div>
                   <button
                     onClick={handleReset}
                     disabled={isBusy}
-                    className="flex items-center gap-1 text-xs font-medium text-gray-500 hover:text-red-600 px-2 py-1 rounded hover:bg-red-50 transition-colors"
+                    className="flex items-center gap-1 text-xs font-medium text-text-secondary hover:text-red-600 px-2 py-1 rounded hover:bg-red-50 transition-colors"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
                     Start Over
@@ -177,8 +177,8 @@ const App: React.FC = () => {
           </div>
         ) : (
           !currentFile && (
-            <div className="hidden lg:flex flex-1 items-center justify-center bg-gray-100 bg-opacity-50 rounded-lg border-2 border-dashed border-gray-200">
-              <p className="text-gray-400 font-medium">Upload audio to begin</p>
+            <div className="hidden lg:flex flex-1 items-center justify-center bg-bg-accent bg-opacity-30 rounded-lg border-2 border-dashed border-border/50">
+              <p className="text-text-muted font-medium">Upload audio to begin</p>
             </div>
           )
         )}

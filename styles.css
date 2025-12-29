@@ -24,15 +24,15 @@
 /* Dark Mode Tokens */
 .dark {
   --bg-primary: #111111;
-  --bg-secondary: #1a1a1a;
-  --bg-accent: #222222;
+  --bg-secondary: #18181B;
+  --bg-accent: #27272A;
   
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --text-muted: #64748b;
+  --text-primary: #F4F4F5;
+  --text-secondary: #A1A1AA;
+  --text-muted: #71717A;
   
-  --border-color: #334155;
-  --brand-glow: rgba(37, 99, 235, 0.3);
+  --border-color: #27272A;
+  --brand-glow: rgba(59, 130, 246, 0.2);
 }
 
 /* Base Styles */

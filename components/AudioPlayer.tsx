@@ -190,25 +190,32 @@ const AudioPlayer = forwardRef<AudioPlayerRef, AudioPlayerProps>(({ src, onTimeU
         </div>
 
         {/* Main Controls */}
-        <div className="flex items-center gap-1 justify-center flex-1 min-w-[200px]">
-          <button onClick={jumpToStart} className="control-btn" title="Jump to Beginning">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19l-7-7 7-7m8 14l-7-7 7-7" /></svg>
+        <div className="flex items-center gap-2 justify-center flex-1 min-w-[200px]">
+          <button onClick={jumpToStart} className="control-btn p-2" title="Jump to Beginning">
+            <svg className="w-5 h-5 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19l-7-7 7-7m8 14l-7-7 7-7" /></svg>
           </button>
-          <button onClick={() => skip(-10)} className="control-btn" title="Rewind 10s">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0019 16V8a1 1 0 00-1.6-.8l-5.333 4zM4.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0011 16V8a1 1 0 00-1.6-.8l-5.334 4z" /></svg>
+          <button onClick={() => skip(-10)} className="control-btn p-2" title="Rewind 10s">
+            <svg className="w-6 h-6 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0019 16V8a1 1 0 00-1.6-.8l-5.333 4zM4.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0011 16V8a1 1 0 00-1.6-.8l-5.334 4z" /></svg>
           </button>
-          <button onClick={togglePlay} className="p-3 bg-brand-primary text-text-on-accent rounded-full hover:bg-brand-secondary shadow-md transition-transform active-scale-95 mx-2" aria-label={isPlaying ? "Pause" : "Play"}>
+
+          <button
+            onClick={togglePlay}
+            className="w-14 h-14 flex items-center justify-center bg-brand-primary text-white rounded-full hover:bg-brand-secondary shadow-lg shadow-brand-glow transition-all active:scale-95 transform mx-4 group relative"
+            aria-label={isPlaying ? "Pause" : "Play"}
+          >
+            <div className="absolute inset-0 rounded-full bg-brand-primary opacity-20 group-hover:animate-pulse"></div>
             {isPlaying ? (
-              <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" /></svg>
+              <svg className="h-6 w-6 relative z-10" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" /></svg>
             ) : (
-              <svg className="h-5 w-5 translate-x-0.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" /></svg>
+              <svg className="h-6 w-6 translate-x-0.5 relative z-10" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" /></svg>
             )}
           </button>
-          <button onClick={() => skip(10)} className="control-btn" title="Forward 10s">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 5l7 7-7 7M5 5l7 7-7 7" /></svg>
+
+          <button onClick={() => skip(10)} className="control-btn p-2" title="Forward 10s">
+            <svg className="w-6 h-6 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 5l7 7-7 7M5 5l7 7-7 7" /></svg>
           </button>
-          <button onClick={jumpToEnd} className="control-btn" title="Jump to End">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 5l7 7-7 7M5 5l7 7-7 7" /></svg>
+          <button onClick={jumpToEnd} className="control-btn p-2" title="Jump to End">
+            <svg className="w-5 h-5 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 5l7 7-7 7M5 5l7 7-7 7" /></svg>
           </button>
         </div>
 

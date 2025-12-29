@@ -172,7 +172,12 @@ body {
 .text-text-muted { color: var(--text-muted); }
 .text-brand-primary { color: var(--accent-primary); }
 .text-status-error { color: var(--status-error); }
+.text-text-on-accent { color: var(--text-on-accent); }
 
 .border-border-subtle { border-color: var(--border-subtle); }
 .border-border-default { border-color: var(--border-default); }
 .border-border { border-color: var(--border-default); }
+
+.bg-brand-primary { background-color: var(--accent-primary); }
+.bg-brand-secondary { background-color: var(--accent-secondary); }
+.bg-brand-glow { box-shadow: 0 0 15px var(--accent-glow); }

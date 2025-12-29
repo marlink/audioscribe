@@ -27,28 +27,25 @@ AudioScribe AI is a React-based web application that transcribes audio files (MP
 
 2. **Configure environment variables:**
    
-   Create or edit `.env.local` in the project root:
+   Create or edit `.env` in the project root:
    ```bash
-   # Add your API key here if using external transcription services
-   API_KEY=your_api_key_here
+   # Add your Google Gemini API key here
+   GEMINI_API_KEY=your_api_key_here
    ```
 
-3. **Run the development server:**
+3. **Run the application (Server + Client):**
    ```bash
-   npm run dev
+   npm start
    ```
    
    The application will be available at `http://localhost:3000`
+   This command starts the local Express server which handles both the API and serving the frontend.
 
-4. **Build for production:**
+4. **Development Mode (Frontend Only):**
    ```bash
-   npm run build
+   npm run dev
    ```
-
-5. **Preview production build:**
-   ```bash
-   npm run preview
-   ```
+   *Note: API calls will fail in this mode unless a backend is running separately.*
 
 ## Project Structure
 
@@ -61,45 +58,35 @@ audioscribe-ai/
 │   ├── Header.tsx
 │   ├── ProgressIndicator.tsx
 │   └── TranscriptList.tsx
-
 ├── services/           # API and business logic
-│   └── transcriptionService.ts
+│   └── geminiService.ts
 ├── utils/             # Utility functions
 ├── App.tsx            # Main application component
-├── index.tsx          # Application entry point
-├── types.ts           # TypeScript type definitions
-├── styles.css         # Global styles
+├── server.js          # Express backend server
+├── styles.css         # Global styles and Design System
 └── vite.config.ts     # Vite configuration
-
 ```
 
 ## Environment Variables
 
-- `API_KEY`: API key for transcription service (required)
+- `GEMINI_API_KEY`: API key for Google Gemini AI service (required for transcription)
 
 ## Features
 
+- **Local Processing Pipeline**: Frontend-to-Backend secure communication
+- **AI Transcription**: Powered by Google Gemini 1.5 Flash
 - Upload audio files in multiple formats (MP3, M4A, WAV)
 - Real-time transcription progress tracking
 - Timestamped transcript segments
-- Speaker detection (when available)
+- Speaker detection and formatting
 - Audio playback with synchronized transcript
-- Export transcripts
-- Responsive design for mobile and desktop
-
-## Development
-
-The project uses:
-- **TypeScript** for type safety
-- **Vite** for fast development and optimized builds
-- **React 19** with modern hooks and patterns
-- **Tailwind CSS** for utility-first styling
+- Premium UI with Dark Mode support
 
 ## Troubleshooting
 
-- **Port already in use**: Change the port in `vite.config.ts` (default: 3000)
-- **API errors**: Verify your API key is correctly set in `.env.local`
-- **Build errors**: Clear node_modules and reinstall: `rm -rf node_modules && npm install`
+- **Transcription Failed**: Ensure `npm start` is running and `GEMINI_API_KEY` is set in `.env`
+- **Port already in use**: Change the port in `server.js` or `vite.config.ts`
+- **API errors**: Check server logs in the terminal where you ran `npm start`
 
 ## License
 
